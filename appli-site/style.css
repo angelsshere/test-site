@@ -1,0 +1,332 @@
+@charset "utf-8";
+
+/* マークアップ */
+/* 1.headerをマークアップ↓header  h1でリンク先に飛ぶ記述を表現しimgのロゴを表示するa>h1>img> [width240 height27] alt属性は"Dot install Walking" ↓header*/
+
+/*3.リンク先に飛ぶ.btn（クラス）を記述し「ダウンロード」とする。↓Co */
+
+/* 6. .containerを記述しheaderの中を囲う↓common*/
+
+/* 12.section.heroを記述 >見出し、文章、ボタン、画像。でMup 今回imgのサイズはHTMLで編集width320 height330 pタグには「お散歩を」の次に改行を入れるAlt属性は「アプリの動作イメージ」↓Co*/
+
+/* 26..featuresセクションを記述 .features>h1{すごい特徴}>↓.features */
+
+/* 28..featuresの中にあるh1の次にcommonの.containerにある余白が使えるのでそれを記述する。その中にsection、画像（img）、見出し（h2）、文章(ｐ)を記述 alt属性は「すごい特徴のイメージ」.container>section>img+h2+p↓.features*/
+
+/* 29.imgの収まりを調整（スタイリング）するためにdiv.picを設定し中にimgを入れる（div .picで囲む）↓features*/
+
+/* 34..features>div.container>のsectionを3つに複製 ↓.features*/
+
+/* 36.ユーザーの声section.voices、見出し（h1）を記述 ↓*/
+
+/* 37..voices>h1の直下には両側に余白を付けたいので共通スタイル（common）の.containerを記述しその中に新たにsectionを記述 ↓*/
+
+/* 38..そのsectionに>p{文言}とし著作者という位置づけなので+footerタグ>画像+(p)職業、年齢を記述する。Alt属性はユーザーのアイコン↓*/
+
+/* 39.imgのサイズをwidth40,height40に指定↓.voices */
+
+/* 48..voices>.container>のsectionを3つの複製 ↓.voices*/
+
+/* 50.section.call-to-action>h1を記述 ↓*/
+
+/* 51.commonの.btnが使えるのでそれを配置 ↓call-to-action*/
+
+/* 57.footer.copyright>small{(c)dot install.com}を記述 ↓copy right*/
+
+/* 63.section.heroの中にcommonで設定した.containerを記述しその幅を基準として中に画像(.pic)とテキスト(.desc)それぞれが横並びになり左右"半分ずつ"に分かれて、それぞれの領域で中央揃えになるようマークアップ↓large screen */
+
+/* 70..featuresのimgとtextをdivで囲って横並びにできる様にします。画像はすでにdiv.picで囲われているので説明(h2とp)を.desc(div)で囲み後の2項目とも同じように設定する。↓large screen */
+
+/* common(全てのリンクに対応の意) */
+
+/* 4. リンクする全ての下線を消し色を継承↓*/
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+/* 5. .btnの "幅を指定できる様に" 設定しwidth160px 背景色#329e00 文字色#fff 中央揃え 上下の中に12pxの余白 角を4px丸めて 太字に ↑Mu */
+.btn {
+	display: block;
+	width: 160px;
+	background: #329e00;
+	color: #fff;
+	text-align: center;
+	padding: 12px 0;
+	border-radius: 4px;
+	font-weight: bold;
+}
+
+/* 7. セレクタは.containerを使っているのでCSSでは.containerのwidth100%のうち両サイドに16pxずつのその側の余白ができる様に設定し、.container領域を中央寄りに配置させてoutlineを2px、solid、redに設定↓header */
+.container {
+	width: calc(100% - 32px);
+	margin: 0 auto;
+
+	max-width: 800px;
+}
+/* 69.幅を広げていくと.containerの幅が800px以上広がらないように固定に設定 ↑Mu*/
+
+/* 78.outlineを解除↓ */
+
+/* outline: solid 2px red; */
+
+/* 13.全体にfont-family Arial, Helvetica, sans-serif ↓ */
+body {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+/* 14. 今回全てのh1に対してfont-size24pxを指定、太字解除、文字色を＃22577aに設定 ↓*/
+h1 {
+	font-size: 24px;
+	color: #22577a;
+}
+
+/* 15.pタグにline-height1.6と余白をm0の設定（リセットCSSなので不要） ↓hero*/
+p {
+	line-height: 1.6;
+}
+
+/* 23.img下部の隙間を消す↓hero */
+img {
+	vertical-align: bottom;
+}
+
+/* 31.h2もh1同様の色#22577aにしつつsizeをh2は20pxとする↓.features*/
+h2 {
+	color: #22577a;
+	font-size: 20px;
+}
+
+/*33..featuresの 2番目のpの上に16pxの外側余白を設定↑Mu  */
+
+p + p {
+	margin-top: 16px;
+}
+
+/* header */
+
+/* 2.確認しやすいように一時的にheaderの背景色を#eee ↑Mu*/
+header {
+	background: #eee;
+	padding: 16px 0;
+}
+/* 17.確認用の背景色を解除 ↓hero*/
+
+/* 8.ロゴとボタンを横並び ↓*/
+header .container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+/* 9.画像を右.btnクラスを一番右側に配置↓ */
+/* 10.中側の上下に16pxの余白を今回はheaderに設定 ↑*/
+/* 11.上下中央に配置 ↑Mu*/
+
+/* hero */
+
+/* 16.背景色、今回は背景に関する"いろいろなプロパティを設定"できる様に個別指定 色は#99e6ff ↑header*/
+section.hero {
+	background-color: #99e6ff;
+	padding-top: 64px;
+	background-image: url(img/bg.png);
+	background-repeat: repeat-x;
+	background-position: center bottom;
+	text-align: center;
+}
+/* 18.町並みの背景画像を設定 ↓*/
+
+/* 19.今回X方向に "繰り返し" 並べてY方向には "繰り返し" 並べたくないので設定できるプロパティをつかって制御する。↓ */
+
+/* 20.並べた画像を "中央寄り" の "下" に配置↓ */
+
+/* 21.背景の中の上側に余白を64px設定 ↓*/
+
+/* 22.pの上8px、.btnの上64px、imgの上に64px外に余白を設定 ↑Co*/
+.hero p {
+	margin-top: 8px;
+}
+
+.hero img {
+	margin-top: 64px;
+}
+
+/* 24.全体的に中央揃えに */
+
+/* 25..btnを外側の余白で中央揃えにしつつ22.で付けた外の余白top64pxも忘れずに追加し下の余白は0に指定するのを忘れないよう注意 ↑Mu*/
+
+.hero .btn {
+	margin: 64px auto 0;
+}
+
+/* features */
+
+/*27. h1を中央揃え↑Mu */
+.features h1 {
+	text-align: center;
+	padding-bottom: 64px;
+}
+
+/* 30.画像（img）が大きすぎるのでwidthを100％に設定 .picの中の上下左右に32px余白を設定↑Co*/
+
+.features img {
+	width: 100%;
+}
+
+.features .pic {
+	padding: 32px;
+}
+
+/* 32..featuresの中上下64pxに、h1の中下に64pxの余白をh2は中下に16pxの余白を設定。↑Co*/
+.features {
+	padding: 64px 0;
+}
+
+.features h2 {
+	padding-bottom: 16px;
+}
+
+/* 35..featuresの中の2番目のsectionそれに3番目のsectionの間に外白の上に40px余白を設定↑Mu */
+
+.features section + section {
+	margin-top: 40px;
+}
+
+/* voices */
+
+/*40. voicesの背景色を#99e6ff↓ */
+.voices {
+	background: #99e6ff;
+	padding: 64px 0;
+}
+/* 41..vocesの中の上下に余白を64px ↓*/
+
+/* 42.h1を中央揃えにして、中の下に余白を64px↓ */
+.voices h1 {
+	text-align: center;
+	padding-bottom: 64px;
+}
+/* 43.sectionの背景色を#fffにして内側に余白を16px付け角を16px丸める↓ */
+.voices section {
+	background: #fff;
+	padding: 16px;
+	border-radius: 16px;
+}
+
+/* 44..voicesの中のfooterの中の要素を横並びに */
+.voices footer {
+	display: flex;
+	gap: 8px;
+	align-items: center;
+	margin-top: 16px;
+}
+
+/* 45.imgとtextの間を開けたいのでdisplay:flex;を使用しているのでgapプロパティを使い8pxの隙間を付ける */
+
+/* 46footerの中の要素を上下中央揃えに. */
+/* 47.footerの上に外側の余白を16px ↑Mu*/
+/* 49.voicesの中のsectionどうしがくっついているので外側余白を16pxを付ける↑Mu */
+.voices section + section {
+	margin-top: 16px;
+}
+
+/* call-to-action */
+
+/* 52.上下内側に 余白を64px*/
+.call-to-action {
+	padding: 64px 0;
+	background-color: #85d8f2;
+	background-image: url(img/bg.png);
+	background-repeat: repeat-x;
+	background-position: center bottom;
+}
+
+/* 53. h1を中央揃えにし外側下に余白64pxを設定*/
+.call-to-action h1 {
+	text-align: center;
+	margin-bottom: 64px;
+}
+/* 54.block要素.btnを中央揃えにし */
+.call-to-action .btn {
+	margin: 0 auto;
+}
+
+/* 55.背景にheroエリアと同じように街並みの背景画像を入れる(background要素のみ) */
+
+/* 56.その背景画像の背景色を#85d8f2に書き換え ↑Mu*/
+
+/*copyright  */
+/* 58.背景色#323435 */
+.copyright {
+	background: #323435;
+	padding: 64px 0;
+	text-align: center;
+}
+
+/* 59.上下内に64pxの余白 */
+/* 60.textを中央揃え */
+/* 61..smallのfont-size16px color#eee ↓メディアクエリー */
+.copyright small {
+	font-size: 16px;
+	color: #eee;
+}
+/* pc版完了 */
+
+/* メディアクエリー */
+/* large screen */
+/* 62.@media min 600pxを記述 ↑Mu*/
+@media (min-width: 600px) {
+	.hero .container {
+		display: flex;
+		align-items: center;
+	}
+	.hero .desc,
+	.hero .pic {
+		width: 50%;
+	}
+	.hero img {
+		height: auto;
+		width: calc(100% - 32px);
+		margin-top: 0;
+	}
+	.features section {
+		display: flex;
+	}
+	.features section:nth-child(odd) {
+		flex-direction: row-reverse;
+	}
+	.voices .container {
+		display: flex;
+		gap: 16px;
+	}
+	.voices section + section {
+		margin-top: 0;
+	}
+	.voices section {
+		width: calc((100% - 32px) / 3);
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+}
+/* 64..heroの.descと.picを横並びに */
+/* 65.幅が600px以上になった時点で.heroの.descと.heroの.picの画像表示比率が半分ずつの50％づつになるように設定 */
+/* 66.横幅を広げていくと縦並びから横並びになる際img(画像の幅)が赤枠(画面)からはみ出てしまっています。これは HTML で指定した 画像幅が320px のまま効いているからで、回避するにはimgの幅widthを100％としてcommonのcontainerと同じようにimg領域の中にwidth: calc(100% - 32px)と幅領域の指定を記述します。するとcommonでmargin: 0 auto;32pxの設定をしているので余白が16pxずつ左右に振り分けられます。また、縦横比の縦に崩れてしまっているのでheightをautoにすれば縦横比が整って表示されます。 */
+/* 67.600px以上ではhero.imgの上にある余白は要らないので0に */
+/* 68..descの位置を上下中央に↑common */
+/* 71..featuresの.picと.descを横並びに ↓ */
+/* 72.:nth-child()で.featureの.picと.descを交互に表示 ↓*/
+/* 73. .voicesのsection（ユーザー）ごとに3列に縦並び */
+/* 74.隙間を16px */
+/* 75..44で設定したmargin-top:16pxが効いて高さが揃っていないので;.voicesのユーザー2番目と3番目のmargin-topの余白を 0にリセットして3つの高さが揃うように設定*/
+/* 76..voicesのtextの長さがそれぞれ違うと文字数によってsectionの幅が変わるのでwidthの領域100%から.container分の32pxを引いた残りの幅を3つに振り分けてwidthを固定幅で指定します。 */
+/* 77.footerのimg(画像)の位置が揃うようにflex boxを使って設定1.display:flex;でimgとpが横に並びflex-direction:colmn;で縦に並びjustify-content:space-between;で間が空きます*/
+/* 文字数によってvoicesの大きさが変わるのを防ぐ為にdisplay:flex;で指定 
+  display: flex;
+  /* レイアウトが変わるのでcolumnで元に戻し 
+  flex-direction: column;
+  
+  /* 間を開ける際主軸方向が変わったので指定に対して下記を指定 
+  justify-content: space-between;
+ */
+
+/* ↑common  */
